@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "HHAItemsViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -15,7 +15,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    if (@available(iOS 13.0, *)) {
+        
+    } else {
+        self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        HHAItemsViewController *vc = [[HHAItemsViewController alloc] init];
+        self.window.rootViewController = vc;
+        self.window.backgroundColor = [UIColor clearColor];
+        [self.window makeKeyAndVisible];
+    }
     return YES;
 }
 
